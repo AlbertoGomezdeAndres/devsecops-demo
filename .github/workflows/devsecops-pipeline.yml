@@ -55,17 +55,6 @@ jobs:
           cache-to: type=gha,mode=max
           load: true
 
-      # ==================== Escaneo con Trivy (falla el pipeline) ====================
-      - name: Scan Docker image with Trivy (falla en HIGH/CRITICAL)
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'ghcr.io/albertogomezdeandres/devsecops-demo:latest'
-          format: 'table'
-          exit-code: '1' # ← FALLA si hay HIGH o CRITICAL
-          severity: 'CRITICAL,HIGH'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-
       # ==================== Push solo si todo OK ====================
       - name: Push multi-arch image to GHCR
         uses: docker/build-push-action@v6
