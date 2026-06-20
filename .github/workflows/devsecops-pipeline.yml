@@ -50,7 +50,7 @@ jobs:
           context: .
           push: false
           tags: ghcr.io/albertogomezdeandres/devsecops-demo:latest
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
           load: true
